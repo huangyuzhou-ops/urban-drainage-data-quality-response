@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the manuscript and archived repository."
+title: "Reproducibility materials for quantifying liquid-level monitoring-data quality effects on urban drainage prediction models"
+authors:
+  - family-names: "Author"
+    given-names: "To be updated"
+version: "0.1.0-draft"
+doi: "10.5281/zenodo.to-be-added"
+date-released: "2026-05-28"
+repository-code: "https://example.org/to-be-added"
+keywords:
+  - urban drainage
+  - liquid-level monitoring
+  - data quality
+  - controlled degradation
+  - model evaluation
+license: "To be confirmed"
+

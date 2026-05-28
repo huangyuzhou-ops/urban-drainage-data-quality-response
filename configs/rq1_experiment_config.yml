@@ -1,0 +1,76 @@
+project:
+  short_name: rq1_dqi_response
+  title: "Quantifying the Effect of Liquid-Level Monitoring Data Quality on Urban Drainage Prediction Models"
+  target_journal: "Environmental Modelling & Software"
+
+data:
+  sample_size_sensors: 113
+  sampling_interval_minutes: 5
+  analysis_start: "2021-08-11 00:00"
+  analysis_end: "2022-08-10 23:55"
+  excluded_sensor: "NHJ-07"
+  restricted_raw_data_note: "Raw municipal monitoring records are not redistributed in the public repository."
+
+splits:
+  fit_window:
+    start: "2021-08-11 00:00"
+    end: "2022-04-02 23:55"
+  calibration_window:
+    start: "2022-04-03 00:00"
+    end: "2022-04-30 23:55"
+  test_window:
+    start: "2022-06-01 00:00"
+    end: "2022-08-10 23:55"
+
+dqi:
+  components:
+    - completeness
+    - continuity
+    - stability
+    - physical_plausibility
+    - temporal_consistency
+  score_range: [0, 100]
+  grade_thresholds:
+    A: "score >= 85"
+    B: "75 <= score < 85"
+    C: "60 <= score < 75"
+    D: "score < 60"
+
+prediction:
+  horizons_minutes: [5, 15, 30, 60, 120]
+  baselines:
+    - last_value_persistence
+    - daily_naive
+    - seasonal_mix
+    - topology_blend
+    - local_residual_ridge
+    - graph_temporal_ridge
+  primary_metric: "RMSE"
+  secondary_metrics:
+    - MAE
+    - relative_RMSE_increase
+
+controlled_degradation:
+  scenarios:
+    - random_missingness
+    - outage_blocks
+    - gaussian_noise
+    - spike_noise
+    - time_shift
+    - stuck_sensor
+  severity_levels:
+    - low
+    - medium
+    - high
+
+statistics:
+  paired_unit: "sensor"
+  confidence_interval: "bootstrap 95% CI"
+  p_value_adjustment: "Benjamini-Hochberg"
+  effect_size: "absolute and relative RMSE increase"
+
+public_outputs:
+  figure_source_data: "data/figure_source_data"
+  derived_tables: "data/derived"
+  anonymized_monitoring_demo: "data/anonymized_monitoring_demo"
+

@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-05-28T03:49:48.814677+00:00",
+  "config_file": "anonymization_config.json",
+  "input_sensor_catalog_file": "rq1_113_sensor_catalog.csv",
+  "public_dir": "public_anonymized_monitoring_data",
+  "sensor_count": 113,
+  "public_sensor_catalog": "sensors_anonymized.csv",
+  "timeseries_files_written": 0,
+  "spatial_transform": {
+    "coordinates_published": false,
+    "drop_original_xy": true
+  },
+  "vertical_transform": {
+    "vertical_values_published": false,
+    "drop_original_columns": true
+  },
+  "identifier_strategy": {
+    "id_prefix": "S",
+    "id_digits": 4,
+    "salt_source": "fallback_public_salt",
+    "private_id_map_written": false
+  }
+}

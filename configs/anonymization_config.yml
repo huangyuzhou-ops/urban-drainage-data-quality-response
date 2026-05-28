@@ -1,0 +1,96 @@
+project:
+  short_name: rq1_dqi_response
+  manuscript_title: "Quantifying the Effect of Liquid-Level Monitoring Data Quality on Urban Drainage Prediction Models"
+  version: "0.1.0-draft"
+
+inputs:
+  # These paths point to the current local workspace and should be changed by authorised data holders.
+  sensor_catalog: "../../rq1_outputs/113_point_recovery/rq1_113_sensor_catalog.csv"
+  monitoring_timeseries_dir: "../../排水液位时序模型资料/监测点数据/2022排水液位计情况"
+  timeseries_glob: "*.csv"
+
+outputs:
+  public_dir: "../public_anonymized_monitoring_data"
+  sensor_catalog_out: "sensors_anonymized.csv"
+  timeseries_dir: "timeseries_anonymized"
+  provenance_out: "anonymization_provenance.json"
+  private_dir: "../_private_anonymization"
+  private_id_map_out: "sensor_id_mapping_private.csv"
+
+privacy:
+  id_prefix: "S"
+  id_digits: 4
+  # Use an environment variable for the salt. Do not write the real salt into the public repository.
+  id_salt_env: "RQ1_ANON_SALT"
+  fallback_public_salt: "replace-with-private-salt-before-release"
+  keep_private_id_map: false
+  shuffle_rows: true
+  shuffle_seed: 20260528
+  drop_original_identifier_columns: true
+  identifier_columns:
+    - sensor_id
+    - scada_id
+    - node_id
+    - timeseries_file
+  drop_additional_columns:
+    - node_kind
+    - in_current_inp
+    - quality_flags
+    - sensor_order
+  include_public_hash: false
+
+spatial_transform:
+  enabled: true
+  # Keep this false unless reviewers need a public schematic of the relative sensor layout.
+  # When false, no coordinate columns are written to the public catalogue.
+  publish_transformed_coordinates: false
+  x_column: "x"
+  y_column: "y"
+  center: "centroid"
+  rotation_degrees: 37.0
+  scale_factor: 3.7
+  translate_x: 500000.0
+  translate_y: 3000000.0
+  jitter_std: 0.0
+  round_decimals: 2
+  output_x_column: "x_public"
+  output_y_column: "y_public"
+  drop_original_xy: true
+
+vertical_transform:
+  enabled: true
+  publish_transformed_vertical: false
+  columns:
+    - invert_elev_m
+    - surface_elev_m
+  strategy: "center_scale"
+  scale_factor: 1.25
+  offset: 100.0
+  round_decimals: 3
+  suffix: "_public"
+  drop_original_columns: true
+
+timeseries_transform:
+  enabled: false
+  # Set to true only if the data owner approves public release of anonymized demonstration time series.
+  timestamp_columns:
+    - timestamp
+    - time
+    - datetime
+    - 时间
+    - 采集时间
+  value_columns: "auto"
+  value_strategy: "per_sensor_robust_scale"
+  public_value_column: "level_public"
+  scale_factor: 10.0
+  offset: 100.0
+  round_decimals: 4
+  replace_absolute_time_with_index: true
+  minutes_per_step: 5
+  write_one_file_per_sensor: true
+
+quality_control:
+  fail_if_original_ids_in_public: true
+  fail_if_original_xy_in_public: true
+  fail_if_any_coordinate_columns_in_public: true
+  allowed_public_identifier_pattern: "^S[0-9]{4}$"

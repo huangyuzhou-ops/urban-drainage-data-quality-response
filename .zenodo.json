@@ -1,0 +1,19 @@
+{
+  "title": "Reproducibility materials for quantifying liquid-level monitoring-data quality effects on urban drainage prediction models",
+  "description": "Derived data, figure source data, configuration files and anonymization utilities for a study of how liquid-level monitoring-data quality affects urban drainage prediction-model performance.",
+  "creators": [
+    {
+      "name": "Huang, Yuzhou"
+    }
+  ],
+  "keywords": [
+    "urban drainage",
+    "sewer monitoring",
+    "liquid-level prediction",
+    "data quality",
+    "controlled degradation",
+    "model evaluation"
+  ],
+  "upload_type": "dataset",
+  "access_right": "open"
+}

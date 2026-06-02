@@ -2,23 +2,22 @@
 
 ## Dataset name
 
-Derived and anonymized data for "Quantifying the Effect of Liquid-Level Monitoring Data Quality on Urban Drainage Prediction Models".
+Derived and anonymized reproducibility data for "Quantifying the Effect of Liquid-Level Monitoring Data Quality on Urban Drainage Prediction Models".
 
 ## Study system
 
-The original data come from an urban sewer liquid-level monitoring network. The analysed sample contains 113 monitoring points and one year of 5-min observations from 11 August 2021 00:00 to 10 August 2022 23:55.
+The original data come from an urban sewer liquid-level monitoring network. The analysed sample contains 113 monitoring sensors and one year of 5-min liquid-level observations. Original sensor identifiers, infrastructure coordinates and raw operational records are restricted by the data owner and are not redistributed.
 
 ## Public derivatives
 
-The public repository is expected to include:
+The public repository contains:
 
-- pseudonymised sensor catalogue without asset coordinates;
-- sensor-level DQI components and grades;
-- clean-input prediction metrics;
-- controlled-degradation scenario metrics;
-- paired statistical-test outputs;
-- ablation and interpretability summaries;
-- figure source-data tables.
+- figure source-data tables for the main and supplementary figures;
+- derived sensor-level Data Quality Index (DQI) components and grades;
+- controlled-degradation response metrics and paired statistical-test outputs;
+- DQI perturbation, missing-handling, dilated temporal-feature ridge, rainfall-conditioned quality and low-variation screening summaries;
+- a small transformed demonstration monitoring stream with relative 5-min time indices;
+- public configuration files and anonymization utilities.
 
 ## Restricted source data
 
@@ -26,27 +25,9 @@ The raw monitoring records, original sensor identifiers and true coordinates are
 
 ## Anonymization method
 
-The public monitoring catalogue is produced by:
-
-1. replacing original identifiers with stable pseudonymous sensor IDs;
-2. dropping original coordinates and asset-elevation fields by default;
-3. randomly shuffling public sensor rows so that row order cannot be used as an auxiliary identifier;
-4. optionally transforming liquid-level values to sensor-wise public units, if approved by the data owner.
-
-Optional rotated and scaled coordinates can be generated for a schematic layout, but they are not included in the default public release.
+Public monitoring derivatives are prepared by replacing original identifiers with stable pseudonymous IDs, removing original coordinates, shuffling public sensor order where applicable and transforming liquid-level values for the demonstration stream. The demonstration monitoring file uses relative time indices and relative day-clock labels rather than absolute timestamps.
 
 ## Intended use
 
-The public derivatives are intended for:
+The public derivatives are intended for checking figure-level and table-level numerical results, inspecting the DQI and controlled-degradation workflow and developing comparable monitoring-data quality evaluation workflows. They are not intended for operational drainage control, asset-location inference, hydraulic calibration of the original network or infrastructure-security assessment.
 
-- verifying figure-level results;
-- inspecting the DQI and controlled-degradation workflow;
-- reproducing public summaries and plots;
-- developing comparable data-quality evaluation workflows.
-
-They are not intended for:
-
-- operational drainage control;
-- asset-location inference;
-- hydraulic calibration of the original network;
-- public safety or infrastructure-security assessment.

@@ -13,10 +13,9 @@
 | `configs/anonymization_config.yml` | Yes | Public anonymization parameters |
 | `configs/rq1_experiment_config.yml` | Yes | Analysis settings with no credentials |
 | `scripts/anonymize_monitoring_data.py` | Yes | Public anonymization utility |
-| `scripts/rq1_*.py` | Yes, after path cleanup | Analysis scripts copied from the working project |
-| `data/figure_source_data/` | Yes | Source data for figures |
-| `data/derived/` | Yes | Derived metrics and test outputs |
-| `data/anonymized_monitoring_demo/` | Yes, if approved | Pseudonymised monitoring products; coordinates omitted by default |
+| `data/figure_source_data/` | Yes | Source data for main and supplementary figures, including derived DQI, degradation-response, robustness, rainfall-condition and low-variation screening summaries |
+| `anonymized_demo_liquid_level_8sensors_2months.csv` | Yes | Small transformed demonstration monitoring stream; not used for manuscript numerical reproduction |
+| `anonymized_demo_liquid_level_8sensors_2months_provenance.json` | Yes | Transformation and use-boundary metadata for the demonstration stream |
 | `data/raw/` | No | Restricted operational records |
 | `_private/` | No | ID mapping and local-only provenance |
 | `.zenodo.json` | Yes | Repository metadata |
@@ -26,17 +25,14 @@
 
 | Local source | Public destination |
 |---|---|
-| `rq1_outputs/paper_figures/source_data/*.csv` | `data/figure_source_data/` |
-| `rq1_outputs/goal_stage2/*.csv` | `data/derived/` after ID pseudonymisation |
-| `rq1_outputs/quality_response_fast/*.csv` | `data/derived/` after ID pseudonymisation |
-| `rq1_outputs/ablation_interpretability/*.csv` | `data/derived/` after ID pseudonymisation |
-| `scripts/rq1_*.py` | `scripts/` after replacing local absolute paths with config paths |
+| `rq1_outputs/paper_figures_v2/source_data/*.csv` | `data/figure_source_data/main_and_S1_S5/` |
+| `rq1_outputs/reviewer_response_experiments/source_data/*.csv` | `data/figure_source_data/S6_S8_reviewer_response/` |
+| `rq1_outputs/rainfall_static_quality/source_data/*.csv` | `data/figure_source_data/S9_S10_rainfall_low_variation/` |
+| `rq1_outputs/figure_evidence_roadmap/source_data/*.csv` | `data/figure_source_data/S11_evidence_roadmap/` |
 | `排水液位时序模型资料/监测点数据/` | Not public; transformed only through anonymization script |
 
-## Final manual checks
+## Public-release safeguards
 
-- Search public archive for original sensor prefixes and road/place-name fragments.
-- Search public archive for `C:/Users/` or other local absolute paths.
-- Remove private mapping files.
-- Confirm public source-data tables do not contain original coordinate columns.
-- Confirm repository DOI and licence fields are no longer placeholders.
+- Public tables use pseudonymous sensor identifiers and exclude original coordinates, SCADA identifiers and direct asset names.
+- Private ID-mapping files are excluded from the public archive.
+- The Zenodo archive used for submission is version `v0.1.0` with DOI https://doi.org/10.5281/zenodo.20422917.

@@ -1,0 +1,66 @@
+{
+  "dataset": "anonymized_demo_liquid_level_8sensors_2months.csv",
+  "purpose": "small anonymized demonstration dataset for inspecting data structure and public script interfaces; not used to reproduce manuscript numerical results",
+  "period_length": "59 days on a 5-min grid, absolute dates replaced by relative time indices and day-clock labels",
+  "n_sensors": 8,
+  "anonymization": "sensor IDs replaced; timestamps converted to relative indices and relative day-clock labels; liquid levels centered by sensor median and scaled by sensor IQR; original asset names, coordinates, absolute dates and absolute levels omitted",
+  "public_use_boundary": "figure-level and table-level numerical reproduction of the manuscript should use derived source-data tables; complete reruns from raw records require authorised data-owner access",
+  "sensors": [
+    {
+      "sensor_id_public": "DEMO_S01",
+      "source_filename_hash_note": "source filename withheld; deterministic demo ordering only",
+      "n_steps": 16992,
+      "observed_fraction": 0.961,
+      "transform": "sensor median removed and divided by sensor IQR; original timestamps replaced by relative indices and relative day-clock labels"
+    },
+    {
+      "sensor_id_public": "DEMO_S02",
+      "source_filename_hash_note": "source filename withheld; deterministic demo ordering only",
+      "n_steps": 16992,
+      "observed_fraction": 0.9687,
+      "transform": "sensor median removed and divided by sensor IQR; original timestamps replaced by relative indices and relative day-clock labels"
+    },
+    {
+      "sensor_id_public": "DEMO_S03",
+      "source_filename_hash_note": "source filename withheld; deterministic demo ordering only",
+      "n_steps": 16992,
+      "observed_fraction": 0.9669,
+      "transform": "sensor median removed and divided by sensor IQR; original timestamps replaced by relative indices and relative day-clock labels"
+    },
+    {
+      "sensor_id_public": "DEMO_S04",
+      "source_filename_hash_note": "source filename withheld; deterministic demo ordering only",
+      "n_steps": 16992,
+      "observed_fraction": 0.9563,
+      "transform": "sensor median removed and divided by sensor IQR; original timestamps replaced by relative indices and relative day-clock labels"
+    },
+    {
+      "sensor_id_public": "DEMO_S05",
+      "source_filename_hash_note": "source filename withheld; deterministic demo ordering only",
+      "n_steps": 16992,
+      "observed_fraction": 0.9536,
+      "transform": "sensor median removed and divided by sensor IQR; original timestamps replaced by relative indices and relative day-clock labels"
+    },
+    {
+      "sensor_id_public": "DEMO_S06",
+      "source_filename_hash_note": "source filename withheld; deterministic demo ordering only",
+      "n_steps": 16992,
+      "observed_fraction": 0.9486,
+      "transform": "sensor median removed and divided by sensor IQR; original timestamps replaced by relative indices and relative day-clock labels"
+    },
+    {
+      "sensor_id_public": "DEMO_S07",
+      "source_filename_hash_note": "source filename withheld; deterministic demo ordering only",
+      "n_steps": 16992,
+      "observed_fraction": 0.9445,
+      "transform": "sensor median removed and divided by sensor IQR; original timestamps replaced by relative indices and relative day-clock labels"
+    },
+    {
+      "sensor_id_public": "DEMO_S08",
+      "source_filename_hash_note": "source filename withheld; deterministic demo ordering only",
+      "n_steps": 16992,
+      "observed_fraction": 0.965,
+      "transform": "sensor median removed and divided by sensor IQR; original timestamps replaced by relative indices and relative day-clock labels"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ authors:
   - family-names: "Huang"
     given-names: "Yuzhou"
 version: "0.1.0"
+doi: "10.5281/zenodo.20422917"
 date-released: "2026-05-28"
 repository-code: "https://github.com/huangyuzhou-ops/urban-drainage-data-quality-response"
 keywords:
@@ -13,3 +14,4 @@ keywords:
   - data quality
   - controlled degradation
   - model evaluation
+license: "CC0-1.0"

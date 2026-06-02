@@ -1,0 +1,15 @@
+﻿stage,stage_label,main_output,supporting_output,claim_role
+Data-quality stratification,"Data-quality
+stratification",Fig. 1,"Fig. S2-S3, S6",Defines DQI grades and checks whether the grading rule is stable.
+Clean-input prediction context,"Clean-input
+prediction
+context",Fig. 2,Fig. S5,Separates baseline forecast error by DQI grade and horizon.
+Controlled degradation response,"Controlled
+degradation
+response",Fig. 3-4,"Fig. S1, S4, S8",Ranks monitoring disturbances by paired RMSE response.
+Operating-condition checks,"Operating-
+condition
+checks",Supplementary,"Fig. S7, S9-S10","Bounds conclusions under imputation, rainfall and low-dynamic conditions."
+Reporting boundary,"Reporting
+boundary",Fig. 5,"Data/software
+statements",Links model-error reporting to DQI strata and reproducible artefacts.

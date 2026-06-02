@@ -1,0 +1,8 @@
+﻿imputation_method,scenario,level_label,mean_delta_rmse_pct,mean_delta_rmse_m,mean_eval_count_fraction_vs_clean
+forward_fill,outage_block,168h,82.26482084362864,0.1106292612260479,1.0
+linear_interpolation,outage_block,168h,62.45443322690365,0.0839883651034415,1.0
+no_imputation_valid_only,outage_block,168h,-1.3493813569957984,-0.0018146403420777,0.9062070695982184
+forward_fill,random_missing,0.5,6.517253160425864,0.0087643648277255,1.0
+linear_interpolation,random_missing,0.5,-3.97908879901556,-0.0053510558908854,1.0
+no_imputation_valid_only,random_missing,0.5,-0.6458344933202457,-0.0008685145380201,0.4999045387904655
+

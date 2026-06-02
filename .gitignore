@@ -1,0 +1,20 @@
+# Restricted or private data
+data/raw/
+restricted_raw/
+_private/
+../_private_anonymization/
+*_private.csv
+*_id_mapping*.csv
+*.key
+*.pem
+
+# Local caches and generated files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+public_anonymized_monitoring_data/
+
+# Local absolute-path manifests
+*_local_manifest.json
+

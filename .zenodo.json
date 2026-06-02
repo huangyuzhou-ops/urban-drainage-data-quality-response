@@ -14,6 +14,15 @@
     "controlled degradation",
     "model evaluation"
   ],
+  "license": "cc-zero",
   "upload_type": "dataset",
-  "access_right": "open"
+  "access_right": "open",
+  "doi": "10.5281/zenodo.20422917",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/huangyuzhou-ops/urban-drainage-data-quality-response",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
 }

@@ -2,11 +2,11 @@
   "project": {
     "short_name": "rq1_dqi_response",
     "manuscript_title": "Quantifying the Effect of Liquid-Level Monitoring Data Quality on Urban Drainage Prediction Models",
-    "version": "0.1.0-draft"
+    "version": "0.1.0"
   },
   "inputs": {
     "sensor_catalog": "../anonymized_demo_liquid_level_8sensors_2months.csv",
-    "monitoring_timeseries_dir": "../../排水液位时序模型资料/监测点数据/2022排水液位计情况",
+    "monitoring_timeseries_dir": "<restricted_raw_monitoring_dir_not_public>",
     "timeseries_glob": "*.csv"
   },
   "outputs": {
@@ -21,13 +21,23 @@
     "id_prefix": "S",
     "id_digits": 4,
     "id_salt_env": "RQ1_ANON_SALT",
-    "fallback_public_salt": "replace-with-private-salt-before-release",
+    "fallback_public_salt": "public-demo-salt-for-example-only",
     "keep_private_id_map": false,
     "shuffle_rows": true,
     "shuffle_seed": 20260528,
     "drop_original_identifier_columns": true,
-    "identifier_columns": ["sensor_id", "scada_id", "node_id", "timeseries_file"],
-    "drop_additional_columns": ["node_kind", "in_current_inp", "quality_flags", "sensor_order"],
+    "identifier_columns": [
+      "sensor_id",
+      "scada_id",
+      "node_id",
+      "timeseries_file"
+    ],
+    "drop_additional_columns": [
+      "node_kind",
+      "in_current_inp",
+      "quality_flags",
+      "sensor_order"
+    ],
     "include_public_hash": false
   },
   "spatial_transform": {
@@ -49,7 +59,10 @@
   "vertical_transform": {
     "enabled": true,
     "publish_transformed_vertical": false,
-    "columns": ["invert_elev_m", "surface_elev_m"],
+    "columns": [
+      "invert_elev_m",
+      "surface_elev_m"
+    ],
     "strategy": "center_scale",
     "scale_factor": 1.25,
     "offset": 100.0,
@@ -59,7 +72,11 @@
   },
   "timeseries_transform": {
     "enabled": false,
-    "timestamp_columns": ["timestamp", "time", "datetime", "时间", "采集时间"],
+    "timestamp_columns": [
+      "timestamp",
+      "time",
+      "datetime"
+    ],
     "value_columns": "auto",
     "value_strategy": "per_sensor_robust_scale",
     "public_value_column": "level_public",

@@ -1,12 +1,12 @@
 project:
   short_name: rq1_dqi_response
   manuscript_title: "Quantifying the Effect of Liquid-Level Monitoring Data Quality on Urban Drainage Prediction Models"
-  version: "0.1.0-draft"
+  version: "0.1.0"
 
 inputs:
-  # These paths point to the current local workspace and should be changed by authorised data holders.
+  # Raw monitoring records are restricted and are not part of the public release.
   sensor_catalog: "../anonymized_demo_liquid_level_8sensors_2months.csv"
-  monitoring_timeseries_dir: "../../排水液位时序模型资料/监测点数据/2022排水液位计情况"
+  monitoring_timeseries_dir: "<restricted_raw_monitoring_dir_not_public>"
   timeseries_glob: "*.csv"
 
 outputs:
@@ -20,9 +20,8 @@ outputs:
 privacy:
   id_prefix: "S"
   id_digits: 4
-  # Use an environment variable for the salt. Do not write the real salt into the public repository.
   id_salt_env: "RQ1_ANON_SALT"
-  fallback_public_salt: "replace-with-private-salt-before-release"
+  fallback_public_salt: "public-demo-salt-for-example-only"
   keep_private_id_map: false
   shuffle_rows: true
   shuffle_seed: 20260528
@@ -41,8 +40,6 @@ privacy:
 
 spatial_transform:
   enabled: true
-  # Keep this false unless reviewers need a public schematic of the relative sensor layout.
-  # When false, no coordinate columns are written to the public catalogue.
   publish_transformed_coordinates: false
   x_column: "x"
   y_column: "y"
@@ -72,13 +69,10 @@ vertical_transform:
 
 timeseries_transform:
   enabled: false
-  # Set to true only if the data owner approves public release of anonymized demonstration time series.
   timestamp_columns:
     - timestamp
     - time
     - datetime
-    - 时间
-    - 采集时间
   value_columns: "auto"
   value_strategy: "per_sensor_robust_scale"
   public_value_column: "level_public"

@@ -8,7 +8,7 @@ data:
   sampling_interval_minutes: 5
   analysis_start: "2021-08-11 00:00"
   analysis_end: "2022-08-10 23:55"
-  excluded_sensor: "NHJ-07"
+  excluded_sensor: "not_disclosed"
   restricted_raw_data_note: "Raw municipal monitoring records are not redistributed in the public repository."
 
 splits:
@@ -71,6 +71,5 @@ statistics:
 
 public_outputs:
   figure_source_data: "data/figure_source_data"
-  derived_tables: "data/derived"
-  anonymized_monitoring_demo: "data/anonymized_monitoring_demo"
-
+  not_public_end_to_end_outputs: "Restricted-data derived tables used for complete reruns are not released."
+  anonymized_monitoring_demo: "anonymized_demo_liquid_level_8sensors_2months.csv"

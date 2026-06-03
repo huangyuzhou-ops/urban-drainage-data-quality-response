@@ -4,7 +4,7 @@
   "period_length": "59 days on a 5-min grid, absolute dates replaced by relative time indices and day-clock labels",
   "n_sensors": 8,
   "anonymization": "sensor IDs replaced; timestamps converted to relative indices and relative day-clock labels; liquid levels centered by sensor median and scaled by sensor IQR; original asset names, coordinates, absolute dates and absolute levels omitted",
-  "public_use_boundary": "figure-level and table-level numerical reproduction of the manuscript should use derived source-data tables; complete reruns from raw records require authorised data-owner access",
+  "public_use_boundary": "figure-level and table-level numerical reproduction of the manuscript should use derived source-data tables; end-to-end regeneration from raw records requires authorised data-owner access",
   "sensors": [
     {
       "sensor_id_public": "DEMO_S01",

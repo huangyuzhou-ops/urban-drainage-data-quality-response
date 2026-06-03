@@ -5,7 +5,7 @@ project:
 
 inputs:
   # These paths point to the current local workspace and should be changed by authorised data holders.
-  sensor_catalog: "../../rq1_outputs/113_point_recovery/rq1_113_sensor_catalog.csv"
+  sensor_catalog: "../anonymized_demo_liquid_level_8sensors_2months.csv"
   monitoring_timeseries_dir: "../../排水液位时序模型资料/监测点数据/2022排水液位计情况"
   timeseries_glob: "*.csv"
 
